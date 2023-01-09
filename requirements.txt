@@ -1,2 +1,6 @@
 streamlit
 scipy.signal
+matplotlib.pyplot
+matplotlib.colors
+mpl_toolkits.axes_grid1.inset_locator
+PIL
