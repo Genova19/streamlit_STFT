@@ -83,13 +83,14 @@ if but_sub:
         df_rawPxx=pd.DataFrame(rPxx)
         df_rawPxx.columns = t
         df_rawPxx.index = frq
-        df_rawPxx.to_csv(fle_rCSV)
+        rcsv=df_rawPxx.to_csv()
 
         Pxx = (np.abs(rPxx))*2
         df_magPxx=pd.DataFrame(Pxx)
         df_magPxx.columns = t
         df_magPxx.index = frq
-        df_magPxx.to_csv(fle_mCSV)
+        # df_magPxx.to_csv(fle_mCSV)
+        mcsv=df_magPxx.to_csv()
 
         # プロットエリアの用意
         fig = plt.figure()
@@ -142,7 +143,10 @@ if but_sub:
         image = Image.open(fle_PNG)
         st.write('# STFT results')
         st.image(image)
+
+        href2 = f'<a href="data:application/octet-stream;{mcsv}" download="{filename}_mag.csv">Download Link</a>'
+        st.markdown(f"STFT result (magnitude) CSVファイルのダウンロード:  {href2}", unsafe_allow_html=True)
+        href3 = f'<a href="data:application/octet-stream;{rcsv}" download="{filename}_raw.csv">Download Link</a>'
+        st.markdown(f"STFT result (raw) CSVファイルのダウンロード:  {href3}", unsafe_allow_html=True)
+
         plt.close()
-
-
-
