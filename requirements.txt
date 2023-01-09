@@ -1,5 +1,5 @@
 streamlit
-scipy.signal
+scipy==1.10.0
 matplotlib.pyplot
 matplotlib.colors
 mpl_toolkits.axes_grid1.inset_locator
